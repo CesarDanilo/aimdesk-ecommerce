@@ -1,4 +1,4 @@
-# E-commerce
+# 🛒 E-commerce Full-Stack
 
 Bem-vindo ao repositório do meu projeto de e-commerce, onde estou desenvolvendo uma aplicação web full-stack que demonstra a integração de tecnologias modernas de desenvolvimento web. Este projeto é uma demonstração das minhas habilidades em desenvolvimento backend e frontend, com foco em escalabilidade, manutenibilidade e experiência do usuário.
 
