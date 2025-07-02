@@ -9,6 +9,7 @@ import ContactPage from 'views/Contato';
 import ProfilePage from 'views/ProfilePage';
 
 import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
+import Dashboard from 'Admin/src/views/Dashboard';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           <Route path='/checkout' element={<Checkout />} />
           <Route path='/contato' element={<ContactPage />} />
           <Route path='/perfil' element={<ProfilePage />} />
+          <Route path='/admin/dashboard' element={<Dashboard />} />
 
           {/* <Route path="*" element={<Navigate to="/admin/index" replace />} /> */}
         </Routes>
