@@ -1,10 +1,13 @@
 import Dashboard from "../../views/admin/Dashboard";
+import { Produtos } from "../../views/admin/Produtos";
 
 const MainContent = ({ selected }) => {
     const renderContent = () => {
         switch (selected) {
             case 'dashboard':
                 return <Dashboard />;
+            case 'produtos':
+                return <Produtos />;
             default:
                 return (
                     <div className="text-white/50 text-sm">
