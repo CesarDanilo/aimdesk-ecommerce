@@ -1,5 +1,6 @@
 import Dashboard from "../../views/admin/Dashboard";
 import { Produtos } from "../../views/admin/Produtos";
+import { Usuarios } from "../../views/admin/Usuarios";
 
 const MainContent = ({ selected }) => {
     const renderContent = () => {
@@ -8,6 +9,8 @@ const MainContent = ({ selected }) => {
                 return <Dashboard />;
             case 'produtos':
                 return <Produtos />;
+            case 'usuarios':
+                return <Usuarios />;
             default:
                 return (
                     <div className="text-white/50 text-sm">
