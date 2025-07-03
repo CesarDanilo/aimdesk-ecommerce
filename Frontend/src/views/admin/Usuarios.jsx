@@ -10,6 +10,22 @@ export function Usuarios() {
             nome: 'Ada Lovelace',
             email: 'ada@example.com',
             admin: true,
+            ativo: true,
+            createdAt: '2025-07-02T14:30:00Z',
+            cpf: '123.456.789-00',
+            cidade: 'Dourados',
+            endereco: 'Rua Algoritmo, 42',
+            Bairro: 'Jd Italia',
+            numero: 390,
+            cep: '01001‑000',
+            referencia: 'casa',
+            contato: '00000-0000'
+        },
+        {
+            nome: 'Ada Lovelace',
+            email: 'ada@example.com',
+            admin: false,
+            ativo: false,
             createdAt: '2025-07-02T14:30:00Z',
             cpf: '123.456.789-00',
             cidade: 'Dourados',
@@ -24,15 +40,16 @@ export function Usuarios() {
     ];
 
     return (
-        <div className="overflow-x-auto">
-            <table className="min-w-full border-collapse text-sm ">
+        <div className="overflow-x-auto scrollbar-minimal">
+            <table className="min-w-full border-collapse text-sm">
                 {/* Cabeçalho */}
-                <thead className=" text-white  tracking-wider border-b border-white/10">
+                <thead className=" text-white/80 tracking-wider border-b border-white/10">
                     <tr>
                         {[
                             'Nome',
                             'Email',
                             'Admin',
+                            'Ativo',
                             'Criado',
                             'CPF',
                             'Cidade',
@@ -54,7 +71,6 @@ export function Usuarios() {
                     </tr >
                 </thead>
 
-
                 {/* Corpo */}
                 <tbody>
                     {dados.length === 0 ? (
@@ -74,7 +90,8 @@ export function Usuarios() {
                             >
                                 <td className="px-4 py-3">{u.nome}</td>
                                 <td className="px-4 py-3">{u.email}</td>
-                                <td className="px-4 py-3">{u.admin ? '✔︎' : '—'}</td>
+                                <td className={`px-4 py-3 ${u.admin ? 'text-green-500' : 'text-gray-400'}`}>{u.admin ? '✔︎' : '—'}</td>
+                                <td className={`px-4 py-3 ${u.ativo ? 'text-green-500' : 'text-gray-400'}`}>{u.admin ? '✔︎' : '—'}</td>
                                 <td className="px-4 py-3 whitespace-nowrap">
                                     {new Date(u.createdAt).toLocaleDateString()}
                                 </td>
