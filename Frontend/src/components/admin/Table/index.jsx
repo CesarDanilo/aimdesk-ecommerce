@@ -1,8 +1,11 @@
+// src/components/admin/Table.jsx
+import { PencilSquareIcon, TrashIcon } from '@heroicons/react/24/outline';
+
 export function Table({ dados, titulos }) {
     return (
         <table className="min-w-full border-collapse text-sm">
             {/* Cabeçalho */}
-            <thead className=" text-white/80 tracking-wider border-b border-white/10">
+            <thead className="text-white/80 tracking-wider border-b border-white/10">
                 <tr>
                     {titulos.map((titulo) => (
                         <th
@@ -12,7 +15,8 @@ export function Table({ dados, titulos }) {
                             {titulo}
                         </th>
                     ))}
-                </tr >
+                    <th className="px-4 py-3 text-right font-normal">Ações</th>
+                </tr>
             </thead>
 
             {/* Corpo */}
@@ -20,7 +24,7 @@ export function Table({ dados, titulos }) {
                 {dados.length === 0 ? (
                     <tr>
                         <td
-                            colSpan={10}
+                            colSpan={titulos.length + 1}
                             className="px-4 py-6 text-center italic border-t border-white"
                         >
                             Nenhum usuário cadastrado.
@@ -28,14 +32,21 @@ export function Table({ dados, titulos }) {
                     </tr>
                 ) : (
                     dados.map((u, idx) => (
-                        <tr
-                            key={u.id ?? idx}
-                            className=""
-                        >
+                        <tr key={u.id ?? idx}>
                             <td className="px-4 py-3">{u.nome}</td>
                             <td className="px-4 py-3">{u.email}</td>
-                            <td className={`px-4 py-3 ${u.admin ? 'text-green-500' : 'text-gray-400'}`}>{u.admin ? '✔︎' : '—'}</td>
-                            <td className={`px-4 py-3 ${u.ativo ? 'text-green-500' : 'text-gray-400'}`}>{u.admin ? '✔︎' : '—'}</td>
+                            <td
+                                className={`px-4 py-3 ${u.admin ? 'text-green-500' : 'text-gray-400'
+                                    }`}
+                            >
+                                {u.admin ? '✔︎' : '—'}
+                            </td>
+                            <td
+                                className={`px-4 py-3 ${u.ativo ? 'text-green-500' : 'text-gray-400'
+                                    }`}
+                            >
+                                {u.ativo ? '✔︎' : '—'}
+                            </td>
                             <td className="px-4 py-3 whitespace-nowrap">
                                 {new Date(u.createdAt).toLocaleDateString()}
                             </td>
@@ -73,5 +84,5 @@ export function Table({ dados, titulos }) {
                 )}
             </tbody>
         </table>
-    )
+    );
 }

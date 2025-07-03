@@ -21,7 +21,7 @@ export function Usuarios() {
             numero: 390,
             cep: '01001‑000',
             referencia: 'casa',
-            contato: '00000-0000'
+            contato: '00000-0000',
         },
         {
             nome: 'Ada Lovelace',
@@ -36,19 +36,33 @@ export function Usuarios() {
             numero: 390,
             cep: '01001‑000',
             referencia: 'casa',
-            contato: '00000-0000'
+            contato: '00000-0000',
         },
-        // adicione mais itens…
+        // outros usuários…
+    ];
+
+    const titulos = [
+        'Nome',
+        'Email',
+        'Admin',
+        'Ativo',
+        'Criado',
+        'CPF',
+        'Cidade',
+        'Endereço',
+        'Bairro',
+        'N°',
+        'CEP',
+        'Referencia',
+        'Contato',
     ];
 
     return (
         <div className="overflow-x-auto scrollbar-minimal">
-            <div className='flex justify-end'>
+            <div className="flex justify-end mb-4">
                 <ButtonAdd />
             </div>
-            <Table dados={dados} />
+            <Table dados={dados} titulos={titulos} />
         </div>
-
-
     );
 }
