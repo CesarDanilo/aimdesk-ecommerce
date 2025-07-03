@@ -17,7 +17,7 @@ const Sidebar = ({ onSelect, selected }) => {
     };
 
     return (
-        <aside className="h-screen w-64 bg-black backdrop-blur-sm text-white flex flex-col px-6 py-8
+        <aside className="h-full w-64 bg-black backdrop-blur-sm text-white  flex-col px-6 py-8
                      border-r border-white/10 shadow-inner relative">
             <span className="absolute inset-y-0 left-0 w-px bg-white/5" />
 

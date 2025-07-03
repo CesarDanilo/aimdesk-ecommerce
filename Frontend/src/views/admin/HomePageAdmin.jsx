@@ -5,7 +5,7 @@ import { useState } from "react";
 const HomePageAdmin = () => {
     const [selectedItem, setSelectedItem] = useState('dashboard');
     return (
-        <div className="flex flex-col md:flex-row h-screen" >
+        <div className="flex h-screen">
             <Sidebar onSelect={setSelectedItem} />
             <MainContent selected={selectedItem} />
         </div>

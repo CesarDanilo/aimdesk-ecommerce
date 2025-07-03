@@ -3,6 +3,7 @@ import {
     PencilSquareIcon,
     TrashIcon,
 } from '@heroicons/react/24/outline';
+import { ButtonAdd } from '../../components/admin/button_add';
 
 export function Usuarios() {
     const dados = [
@@ -41,6 +42,9 @@ export function Usuarios() {
 
     return (
         <div className="overflow-x-auto scrollbar-minimal">
+            <div className='flex justify-end'>
+                <ButtonAdd />
+            </div>
             <table className="min-w-full border-collapse text-sm">
                 {/* Cabeçalho */}
                 <thead className=" text-white/80 tracking-wider border-b border-white/10">
