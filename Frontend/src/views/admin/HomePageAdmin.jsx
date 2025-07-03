@@ -6,7 +6,7 @@ const HomePageAdmin = () => {
     const [selectedItem, setSelectedItem] = useState('dashboard');
 
     return (
-        <div className="flex min-h-screen overflow-x-auto scrollbar-minimal">
+        <div className="flex min-h-screen overflow-hidden">
             <Sidebar
                 selected={selectedItem}
                 onSelect={setSelectedItem}

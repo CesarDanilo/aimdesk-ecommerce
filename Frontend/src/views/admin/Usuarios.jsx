@@ -67,7 +67,7 @@ export function Usuarios() {
 
             {/* Espaçamento entre botão e tabela */}
             <div className="pt-16">
-                <div className="text-xs">
+                <div className="text-xs w-4/5">
                     <Table dados={dados} titulos={titulos} />
                 </div>
             </div>

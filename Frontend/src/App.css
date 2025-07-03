@@ -1,7 +1,8 @@
 @layer utilities {
   .scrollbar-minimal::-webkit-scrollbar {
-    height: 6px;
-    /* apenas horizontal */
+    height: 10px;
+    width: 10px;
+    /* mais grossa, horizontal e vertical */
   }
 
   .scrollbar-minimal::-webkit-scrollbar-track {
@@ -21,7 +22,7 @@
 
   /* Firefox */
   .scrollbar-minimal {
-    scrollbar-width: thin;
+    scrollbar-width: auto;
     scrollbar-color: #1f1f1f transparent;
   }
 }
