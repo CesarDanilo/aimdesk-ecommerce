@@ -5,6 +5,7 @@ import {
 } from '@heroicons/react/24/outline';
 import { ButtonAdd } from '../../components/admin/button_add';
 import { Table } from '../../components/admin/Table';
+import { DialogCreateUser } from '../../components/admin/DialogCreateUser';
 
 export function Usuarios() {
     const dados = [
@@ -58,11 +59,18 @@ export function Usuarios() {
     ];
 
     return (
-        <div className="overflow-x-auto scrollbar-minimal">
-            <div className="flex justify-end mb-4">
+        <div className="relative overflow-x-auto overflow-y-auto">
+            {/* Botão fixo no topo direito da tela */}
+            <div className="fixed top-4 right-4 z-50">
                 <ButtonAdd />
             </div>
-            <Table dados={dados} titulos={titulos} />
+
+            {/* Espaçamento entre botão e tabela */}
+            <div className="pt-16">
+                <div className="text-xs">
+                    <Table dados={dados} titulos={titulos} />
+                </div>
+            </div>
         </div>
     );
 }

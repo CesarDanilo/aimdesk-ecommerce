@@ -1,6 +1,7 @@
 @layer utilities {
   .scrollbar-minimal::-webkit-scrollbar {
-    height: 6px; /* apenas horizontal */
+    height: 6px;
+    /* apenas horizontal */
   }
 
   .scrollbar-minimal::-webkit-scrollbar-track {
@@ -8,12 +9,14 @@
   }
 
   .scrollbar-minimal::-webkit-scrollbar-thumb {
-    background-color: #1f1f1f; /* preto/cinza escuro */
+    background-color: #1f1f1f;
+    /* preto/cinza escuro */
     border-radius: 8px;
   }
 
   .scrollbar-minimal::-webkit-scrollbar-thumb:hover {
-    background-color: #4b5563; /* cinza ao passar o mouse */
+    background-color: #4b5563;
+    /* cinza ao passar o mouse */
   }
 
   /* Firefox */

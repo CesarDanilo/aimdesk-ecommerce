@@ -21,13 +21,13 @@ const MainContent = ({ selected }) => {
     };
 
     return (
-        <main className="flex h-screen w-full bg-black text-white px-10 py-8 relative overflow-hidden">
+        <main className="flex min-h-screen w-full bg-black text-white px-10 py-8 relative overflow-hidden">
             {/* Círculo decorativo estilo glassmorphism */}
             <div className="absolute top-[-100px] right-[-100px] w-[300px] h-[300px] bg-white/5 rounded-full blur-3xl z-0" />
             <div className="absolute bottom-[-150px] left-[-150px] w-[300px] h-[300px] bg-white/5 rounded-full blur-3xl z-0" />
 
             {/* Conteúdo principal */}
-            <div className="relative z-10 overflow-auto">
+            <div className="relative z-10 w-full">
                 {renderContent()}
             </div>
         </main>
