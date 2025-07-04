@@ -11,7 +11,6 @@ import { useState } from 'react';
 export function Usuarios() {
     const [open, setOpen] = useState(false);
 
-
     const dados = [
         {
             nome: 'Ada Lovelace',
