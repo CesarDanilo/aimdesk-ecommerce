@@ -38,6 +38,14 @@ module.exports = {
         type: Sequelize.FLOAT,
         allowNull: false
       },
+      subtotal: {
+        type: Sequelize.FLOAT,
+        allowNull: false
+      },
+      observacao: {
+        type: Sequelize.STRING(255),
+        allowNull: true
+      },
       createdAt: {
         type: Sequelize.DATE
       },
