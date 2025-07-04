@@ -5,9 +5,8 @@ module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.createTable('Produto', {
       id: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING,
         allowNull: false,
-        autoIncrement: true,
         primaryKey: true
       },
       nome: {
@@ -27,7 +26,7 @@ module.exports = {
         allowNull: false
       },
       imagem: {
-        type: Sequelize.BLOB('long'), // Usa o tipo BLOB para armazenar grandes quantidades de dados binários
+        type: Sequelize.STRING, // Usa o tipo BLOB para armazenar grandes quantidades de dados binários
         allowNull: true // Permitindo valores nulos caso a imagem não seja obrigatória
       },
       createdAt: {
