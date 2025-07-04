@@ -33,6 +33,14 @@ module.exports = {
         type: Sequelize.INTEGER,
         allowNull: false
       },
+      precoUnitario: {
+        type: Sequelize.FLOAT,
+        allowNull: false
+      },
+      subtotal: {
+        type: Sequelize.FLOAT,
+        allowNull: false
+      },
       createdAt: {
         type: Sequelize.DATE
       },
