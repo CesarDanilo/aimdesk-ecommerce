@@ -1,5 +1,6 @@
 import { XMarkIcon } from '@heroicons/react/24/outline';
 import { useState } from 'react';
+import functionCreateUserDialog from '../../functions/functionCreateUserDialog';
 
 export function DialogCreateUser({ onClose }) {
     const [nome, setNome] = useState('');
@@ -15,6 +16,29 @@ export function DialogCreateUser({ onClose }) {
     const [referencia, setReferencia] = useState('');
     const [contato, setContato] = useState('');
     const [senha, setSenha] = useState('');
+    const [dados, setDados] = useState({});
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        const novoUsuario = {
+            nome,
+            email,
+            admin: admin === 'true',
+            ativo: ativo === 'true',
+            cpf,
+            cidade,
+            endereco,
+            bairro,
+            numero,
+            cep,
+            referencia,
+            contato,
+            senha
+        };
+        setDados(novoUsuario); // opcional, se quiser manter o estado
+        functionCreateUserDialog(novoUsuario);
+    }
+
     return (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm">
             <div className="w-full max-w-3xl bg-zinc-900 rounded-xl shadow-lg p-6 min-h-0 h-auto relative max-h-[85vh] overflow-y-auto scrollbar-minimal">
@@ -29,7 +53,7 @@ export function DialogCreateUser({ onClose }) {
                 </button>
                 <h2 className="text-lg font-semibold text-white mb-3">Criar Usuário</h2>
 
-                <form className="space-y-3 text-xs">
+                <form className="space-y-3 text-xs" onSubmit={handleSubmit}>
                     <div>
                         <label className="block text-xs text-white mb-1" htmlFor="nome">Nome</label>
                         <input
@@ -53,10 +77,10 @@ export function DialogCreateUser({ onClose }) {
                     </div>
 
                     <div>
-                        <label className="block text-xs text-white mb-1" htmlFor="email">Senha</label>
+                        <label className="block text-xs text-white mb-1" htmlFor="senha">Senha</label>
                         <input
-                            type="Senha"
-                            id="Senha"
+                            type="password"
+                            id="senha"
                             value={senha}
                             onChange={e => setSenha(e.target.value)}
                             className="w-full rounded px-2 py-1 bg-zinc-800 text-white border border-zinc-700 focus:outline-none focus:ring-1 focus:ring-indigo-500"
@@ -184,6 +208,7 @@ export function DialogCreateUser({ onClose }) {
                     <div className="flex justify-end gap-2 pt-2">
                         <button
                             type="button"
+                            onClick={onClose}
                             className="px-3 py-1 rounded bg-zinc-700 text-white hover:bg-zinc-600 transition text-xs"
                         >
                             Cancelar
