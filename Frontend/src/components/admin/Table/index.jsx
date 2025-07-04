@@ -54,7 +54,7 @@ export function Table({ dados, titulos }) {
                                 <td className="px-4 py-3">{u.cpf}</td>
                                 <td className="px-4 py-3">{u.cidade}</td>
                                 <td className="px-4 py-3">{u.endereco}</td>
-                                <td className="px-4 py-3">{u.Bairro}</td>
+                                <td className="px-4 py-3">{u.bairro}</td>
                                 <td className="px-4 py-3">{u.numero}</td>
                                 <td className="px-4 py-3 whitespace-nowrap">{u.cep}</td>
                                 <td className="px-4 py-3 whitespace-nowrap">{u.referencia}</td>

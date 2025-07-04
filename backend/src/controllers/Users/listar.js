@@ -43,7 +43,23 @@ const listarUsers = async (req, resp) => {
             ...options,
             order: orderOptions,
             where,
-            attributes: ['id', 'nome', 'email' ,'senha', 'admin', 'createdAt', 'updatedAt'] // Incluindo apenas os atributos necessários
+            attributes: [
+                'id',
+                'nome',
+                'email',
+                'admin',
+                'createdAt',
+                'updatedAt',
+                'ativo',
+                'cpf',
+                'cidade',
+                'endereco',
+                'bairro',
+                'numero',
+                'cep',
+                'referencia',
+                'contato'
+            ] // Incluindo apenas os atributos necessários
         });
 
         return resp.status(200).json({
