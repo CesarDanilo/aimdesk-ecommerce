@@ -6,8 +6,12 @@ import {
 import { ButtonAdd } from '../../components/admin/button_add';
 import { Table } from '../../components/admin/Table';
 import { DialogCreateUser } from '../../components/admin/DialogCreateUser';
+import { useState } from 'react';
 
 export function Usuarios() {
+    const [open, setOpen] = useState(false);
+
+
     const dados = [
         {
             nome: 'Ada Lovelace',
@@ -58,11 +62,22 @@ export function Usuarios() {
         'Contato',
     ];
 
+    const handleClick = () => {
+        setOpen(!open);
+    }
+
     return (
         <div className="relative overflow-x-auto overflow-y-auto">
+            {/* Centraliza o DialogCreateUser sobre o conteúdo principal */}
+            {open &&
+                <div className="fixed inset-0 flex items-center justify-center z-50">
+                    <DialogCreateUser onClose={handleClick} />
+                </div>
+            }
+
             {/* Botão fixo no topo direito da tela */}
             <div className="fixed top-4 right-4 z-50">
-                <ButtonAdd />
+                <ButtonAdd handleClick={handleClick} />
             </div>
 
             {/* Espaçamento entre botão e tabela */}
