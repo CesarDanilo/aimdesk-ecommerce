@@ -38,6 +38,15 @@ module.exports = (sequelize) => {
             onUpdate: 'CASCADE',
             onDelete: 'SET NULL'
         },
+        observacao: {
+            type: DataTypes.STRING(255),
+            allowNull: true
+        },
+        ativo: {
+            type: DataTypes.BOOLEAN,
+            allowNull: false,
+            defaultValue: true
+        },
         createdAt: {
             type: DataTypes.DATE,
             defaultValue: DataTypes.NOW

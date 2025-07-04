@@ -5,13 +5,12 @@ module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.createTable('Carrinho', {
       id: {
-        type: Sequelize.INTEGER,
-        autoIncrement: true,
+        type: Sequelize.STRING,
         primaryKey: true,
         allowNull: false
       },
       usuario_id: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING,
         allowNull: false,
         references: {
           model: 'Users', // Nome da tabela de usuários
@@ -21,7 +20,7 @@ module.exports = {
         onDelete: 'CASCADE'
       },
       produto_id: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING,
         allowNull: false,
         references: {
           model: 'Produto', // Nome da tabela de produtos
@@ -32,6 +31,14 @@ module.exports = {
       },
       quantidade: {
         type: Sequelize.INTEGER,
+        allowNull: false
+      },
+      precoUnitario: {
+        type: Sequelize.FLOAT,
+        allowNull: false
+      },
+      subtotal: {
+        type: Sequelize.FLOAT,
         allowNull: false
       },
       createdAt: {

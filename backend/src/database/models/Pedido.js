@@ -26,12 +26,25 @@ module.exports = (sequelize) => {
             onDelete: 'SET NULL'
         },
         status: {
-            type: DataTypes.BOOLEAN,
-            allowNull: false
+            type: DataTypes.STRING(30), // Ex: 'pendente', 'pago', 'enviado', 'cancelado'
+            allowNull: false,
+            defaultValue: 'pendente'
         },
         valorTotal: {
             type: DataTypes.FLOAT,
             allowNull: false
+        },
+        endereco_entrega: {
+            type: DataTypes.STRING(255),
+            allowNull: false
+        },
+        forma_pagamento: {
+            type: DataTypes.STRING(50),
+            allowNull: false
+        },
+        observacao: {
+            type: DataTypes.STRING(255),
+            allowNull: true
         },
         createdAt: {
             type: DataTypes.DATE,

@@ -6,13 +6,12 @@ module.exports = {
 
     await queryInterface.createTable('Favoritos', {
       id: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING,
         allowNull: false,
-        autoIncrement: true,
         primaryKey: true
       },
       usuario_id: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING,
         allowNull: false,
         references: {
           model: 'Users',
@@ -22,7 +21,7 @@ module.exports = {
         onDelete: 'SET NULL'
       },
       produto_id: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING,
         allowNull: false,
         references: {
           model: 'Produto',

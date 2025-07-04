@@ -6,13 +6,12 @@ module.exports = {
 
     await queryInterface.createTable('Pedido', {
       id: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING,
         allowNull: false,
-        autoIncrement: true,
         primaryKey: true
       },
       usuario_id: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING,
         allowNull: false,
         references: {
           model: 'Users',
@@ -22,12 +21,25 @@ module.exports = {
         onDelete: 'SET NULL'
       },
       status: {
-        type: Sequelize.BOOLEAN,
-        allowNull: false
+        type: Sequelize.STRING(30), // Ex: 'pendente', 'pago', 'enviado', 'cancelado'
+        allowNull: false,
+        defaultValue: 'pendente'
       },
       valorTotal: {
         type: Sequelize.FLOAT,
         allowNull: false
+      },
+      endereco_entrega: {
+        type: Sequelize.STRING(255),
+        allowNull: false
+      },
+      forma_pagamento: {
+        type: Sequelize.STRING(50),
+        allowNull: false
+      },
+      observacao: {
+        type: Sequelize.STRING(255),
+        allowNull: true
       },
       createdAt: {
         type: Sequelize.DATE

@@ -6,13 +6,12 @@ module.exports = {
 
     await queryInterface.createTable('PedidoProduto', {
       id: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING,
         allowNull: false,
-        autoIncrement: true,
         primaryKey: true
       },
       pedido_id: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING,
         allowNull: false,
         references: {
           model: 'Pedido',
@@ -22,7 +21,7 @@ module.exports = {
         onDelete: 'SET NULL'
       },
       produto_id: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING,
         allowNull: false,
         references: {
           model: 'Produto',
@@ -38,6 +37,14 @@ module.exports = {
       precoUnitario: {
         type: Sequelize.FLOAT,
         allowNull: false
+      },
+      subtotal: {
+        type: Sequelize.FLOAT,
+        allowNull: false
+      },
+      observacao: {
+        type: Sequelize.STRING(255),
+        allowNull: true
       },
       createdAt: {
         type: Sequelize.DATE

@@ -46,6 +46,14 @@ module.exports = (sequelize) => {
             type: DataTypes.FLOAT,
             allowNull: false
         },
+        subtotal: {
+            type: DataTypes.FLOAT,
+            allowNull: false
+        },
+        observacao: {
+            type: DataTypes.STRING(255),
+            allowNull: true
+        },
         createdAt: {
             type: DataTypes.DATE,
             defaultValue: DataTypes.NOW

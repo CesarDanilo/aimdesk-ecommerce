@@ -38,6 +38,42 @@ module.exports = (sequelize) => {
             type: DataTypes.BOOLEAN,
             allowNull: false
         },
+        ativo: {
+            type: DataTypes.BOOLEAN,
+            allowNull: false
+        },
+        cpf: {
+            type: DataTypes.STRING(20),
+            allowNull: false
+        },
+        cidade: {
+            type: DataTypes.STRING(100),
+            allowNull: false
+        },
+        endereco: {
+            type: DataTypes.STRING(255),
+            allowNull: false
+        },
+        bairro: {
+            type: DataTypes.STRING(100),
+            allowNull: false
+        },
+        numero: {
+            type: DataTypes.INTEGER,
+            allowNull: false
+        },
+        cep: {
+            type: DataTypes.STRING(20),
+            allowNull: false
+        },
+        referencia: {
+            type: DataTypes.STRING(255),
+            allowNull: true
+        },
+        contato: {
+            type: DataTypes.STRING(30),
+            allowNull: false
+        },
         createdAt: {
             type: DataTypes.DATE,
             allowNull: false,
