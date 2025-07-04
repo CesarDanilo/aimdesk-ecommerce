@@ -6,44 +6,24 @@ import {
 import { ButtonAdd } from '../../components/admin/button_add';
 import { Table } from '../../components/admin/Table';
 import { DialogCreateUser } from '../../components/admin/DialogCreateUser';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 
 export function Usuarios() {
     const [open, setOpen] = useState(false);
+    const [dados, setDados] = useState([]);
 
-    const dados = [
-        {
-            nome: 'Ada Lovelace',
-            email: 'ada@example.com',
-            admin: true,
-            ativo: true,
-            createdAt: '2025-07-02T14:30:00Z',
-            cpf: '123.456.789-00',
-            cidade: 'Dourados',
-            endereco: 'Rua Algoritmo, 42',
-            Bairro: 'Jd Italia',
-            numero: 390,
-            cep: '01001‑000',
-            referencia: 'casa',
-            contato: '00000-0000',
-        },
-        {
-            nome: 'Ada Lovelace',
-            email: 'ada@example.com',
-            admin: false,
-            ativo: false,
-            createdAt: '2025-07-02T14:30:00Z',
-            cpf: '123.456.789-00',
-            cidade: 'Dourados',
-            endereco: 'Rua Algoritmo, 42',
-            Bairro: 'Jd Italia',
-            numero: 390,
-            cep: '01001‑000',
-            referencia: 'casa',
-            contato: '00000-0000',
-        },
-        // outros usuários…
-    ];
+    useEffect(() => {
+        axios.get('http://localhost:3001/users')
+            .then(response => {
+                setDados(response.data.data);
+            })
+            .catch(error => {
+                console.error('Erro ao buscar usuários:', error);
+            });
+    }, []);
+
+    console.log(dados);
 
     const titulos = [
         'Nome',
@@ -73,15 +53,13 @@ export function Usuarios() {
                     <DialogCreateUser onClose={handleClick} />
                 </div>
             }
-
             {/* Botão fixo no topo direito da tela */}
             <div className="fixed top-4 right-4 z-50">
                 <ButtonAdd handleClick={handleClick} />
             </div>
-
             {/* Espaçamento entre botão e tabela */}
             <div className="pt-16">
-                <div className="text-xs w-4/5">
+                <div className="text-xs w-full max-w-6xl mx-auto">
                     <Table dados={dados} titulos={titulos} />
                 </div>
             </div>
