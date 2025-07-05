@@ -1,4 +1,5 @@
 const { Users } = require('../../database/models/');
+const { v4: uuid } = require('uuid');
 
 const inserirUsers = async (req, resp, next) => {
 
@@ -8,6 +9,7 @@ const inserirUsers = async (req, resp, next) => {
         let result;
 
         try {
+            dados.id = uuid();
             result = await Users.create(dados);
         }
         catch (error) {
