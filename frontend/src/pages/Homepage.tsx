@@ -5,7 +5,8 @@ import { SectionMainBanner } from "../components/Section.component";
 function HomePage() {
     return (
         <div className="flex flex-col min-h-screen gap-4">
-            <nav className="border-b-1">
+            {/* Navbar sempre acima */}
+            <nav className="border-b relative z-10 bg-white">
                 <div className="container mx-auto flex items-center justify-start gap-6 px-6 py-4">
                     <div className="w-36 flex-shrink-0">
                         <img
@@ -17,7 +18,9 @@ function HomePage() {
                     <Navigation />
                 </div>
             </nav>
-            <section className="flex justify-center align-middle">
+
+            {/* Vídeo no fluxo normal, sem sobreposição */}
+            <section className="flex justify-center items-center relative z-0">
                 <SectionMainBanner />
             </section>
         </div>
