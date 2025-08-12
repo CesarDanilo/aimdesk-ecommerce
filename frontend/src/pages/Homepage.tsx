@@ -25,11 +25,14 @@ function HomePage() {
             <section className="flex justify-center items-center relative z-0">
                 <SectionMainBanner />
             </section>
-            <section className="p-4">
+
+            {/* Cards com margin-top negativo para sobrepor banner e com gap menor */}
+            <section className="-mt-24 px-4 relative z-20">
                 <CategoryCards data={data} />
             </section>
         </div>
     );
 }
+
 
 export default HomePage;
