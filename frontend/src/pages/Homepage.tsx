@@ -1,8 +1,10 @@
 import { Navigation } from "../components/Navbar.component"
 import { SectionMainBanner } from "../components/Section.component"
 import { CategoryCards } from "../components/CategoryCards.component"
+import { FeaturedProducts } from "../components/FeaturedProducts.component"
 import logo from "../assets/logo.png"
 import { data } from '../data/categories-List.data'
+import { listProducts } from "../data/FeaturedProducts-list.data"
 
 function HomePage() {
     return (
@@ -24,6 +26,9 @@ function HomePage() {
             </section>
             <section className="flex justify-center -mt-24 px-4 relative z-20">
                 <CategoryCards data={data} />
+            </section>
+            <section>
+                <FeaturedProducts data={listProducts} />
             </section>
         </div >
     );
