@@ -1,10 +1,3 @@
-import {
-    Card,
-    CardContent,
-    CardHeader,
-    CardTitle,
-} from "./ui/card";
-
 interface DataObject {
     id: string;
     image: string;
@@ -17,26 +10,22 @@ interface CategoryCardsProps {
 
 export function CategoryCards({ data }: CategoryCardsProps) {
     return (
-        <div className="grid grid-cols-3 gap-0.5 w-9/12">
+        <div className="grid grid-cols-3 gap-6 w-full max-w-6xl">
             {data.map((item) => (
-                <Card
+                <div
                     key={item.id}
-                    className="w-9/12 mx-auto border-none rounded-2xl shadow-none bg-transparent relative overflow-hidden"
+                    className="relative overflow-hidden rounded-xl w-full aspect-[4/3] group cursor-pointer"
                 >
-                    <CardContent className="p-0 rounded-2xl">
-                        <img
-                            src={item.image}
-                            alt={item.name}
-                            className="w-full h-48 object-cover rounded-2xl"
-                        />
-                    </CardContent>
-
-                    <CardHeader className="absolute bottom-0 left-0 w-full p-6 bg-black bg-opacity-50 rounded-b-2xl">
-                        <CardTitle className="text-lg text-white">
-                            {item.name}
-                        </CardTitle>
-                    </CardHeader>
-                </Card>
+                    <img
+                        src={item.image}
+                        alt={item.name}
+                        className="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-black/40 transition-colors duration-500 group-hover:bg-black/60"></div>
+                    <h3 className="absolute bottom-0 left-0 w-full p-3 text-base font-semibold text-white text-center transition-transform duration-500 group-hover:translate-y-[-4px]">
+                        {item.name}
+                    </h3>
+                </div>
             ))}
         </div>
     );

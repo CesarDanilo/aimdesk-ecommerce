@@ -1,4 +1,5 @@
 import { Navigation } from "../components/Navbar.component"
+import { Label } from "../components/ui/label"
 import { SectionMainBanner } from "../components/Section.component"
 import { CategoryCards } from "../components/CategoryCards.component"
 import { FeaturedProducts } from "../components/FeaturedProducts.component"
@@ -21,11 +22,14 @@ function HomePage() {
                     <Navigation />
                 </div>
             </nav>
-            <section className="flex justify-center items-center relative z-0">
+            <section className="flex justify-center items-center relative z-0 ">
                 <SectionMainBanner />
             </section>
-            <section className="flex justify-center -mt-24 px-4 relative z-20">
+            <section className="flex justify-center -mt-24 mb-8 px-4 relative z-20">
                 <CategoryCards data={data} />
+            </section>
+            <section className="flex justify-center mt-8">
+                <Label htmlFor="Text" className="text-2xl">Destaques</Label>
             </section>
             <section>
                 <FeaturedProducts data={listProducts} />
