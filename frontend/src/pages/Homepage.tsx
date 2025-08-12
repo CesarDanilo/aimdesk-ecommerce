@@ -1,6 +1,8 @@
-import { Navigation } from "../components/Navbar.component";
-import logo from "../assets/logo.png";
-import { SectionMainBanner } from "../components/Section.component";
+import { Navigation } from "../components/Navbar.component"
+import { SectionMainBanner } from "../components/Section.component"
+import { CategoryCards } from "../components/CategoryCards.component"
+import logo from "../assets/logo.png"
+import { data } from '../data/categories-List.data'
 
 function HomePage() {
     return (
@@ -22,6 +24,9 @@ function HomePage() {
             {/* Vídeo no fluxo normal, sem sobreposição */}
             <section className="flex justify-center items-center relative z-0">
                 <SectionMainBanner />
+            </section>
+            <section className="p-4">
+                <CategoryCards data={data} />
             </section>
         </div>
     );
