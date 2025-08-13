@@ -1,42 +1,20 @@
 export const listProducts = [
     {
         id: "1",
-        image: "https://ae-pic-a1.aliexpress-media.com/kf/Saf15c4607c33466e98e03a8152236183x.jpg_960x960q75.jpg_.avif",
+        image: "https://fallen.cdn.magazord.com.br/img/2025/07/produto/4202/capa-fade-estendido.png?ims=fit-in/600x600/filters:fill(white)",
         name: "Extended Mouse Pads",
         price: "19.99",
     },
     {
         id: "2",
-        image: "https://ae-pic-a1.aliexpress-media.com/kf/Sca46ebc2b4334c37962e80ea07da88aaM.jpg_960x960q75.jpg_.avif",
+        image: "https://fallen.cdn.magazord.com.br/img/2025/07/produto/4174/mousepad-ace-mockup.png?ims=fit-in/600x600/filters:fill(white)",
         name: "Gaming Mouse Pads",
         price: "24.99",
     },
     {
         id: "3",
-        image: "https://ae-pic-a1.aliexpress-media.com/kf/S314dce995e6b496f8f60d9d7a355e4d2L.jpg_960x960q75.jpg_.avif",
+        image: "https://fallen.cdn.magazord.com.br/img/2025/07/produto/4199/capa-de-produto-mousepad-gamer-fallen-spice-candy-estendido.png?ims=fit-in/600x600/filters:fill(white)",
         name: "Ergonomic Mouse Pads",
         price: "17.49",
     }
-    ,
-    {
-        id: "3",
-        image: "https://ae-pic-a1.aliexpress-media.com/kf/S314dce995e6b496f8f60d9d7a355e4d2L.jpg_960x960q75.jpg_.avif",
-        name: "Ergonomic Mouse Pads",
-        price: "17.49",
-    }
-    ,
-    {
-        id: "3",
-        image: "https://ae-pic-a1.aliexpress-media.com/kf/S314dce995e6b496f8f60d9d7a355e4d2L.jpg_960x960q75.jpg_.avif",
-        name: "Ergonomic Mouse Pads",
-        price: "17.49",
-    }
-    ,
-    {
-        id: "3",
-        image: "https://ae-pic-a1.aliexpress-media.com/kf/S314dce995e6b496f8f60d9d7a355e4d2L.jpg_960x960q75.jpg_.avif",
-        name: "Ergonomic Mouse Pads",
-        price: "17.49",
-    }
-
 ];
