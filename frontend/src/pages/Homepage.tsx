@@ -1,11 +1,12 @@
-import { Navigation } from "../components/Navbar.component"
 import { Label } from "../components/ui/label"
+import { Navigation } from "../components/Navbar.component"
 import { SectionMainBanner } from "../components/Section.component"
 import { CategoryCards } from "../components/CategoryCards.component"
 import { FeaturedProducts } from "../components/FeaturedProducts.component"
-import logo from "../assets/logo.png"
-import { data } from '../data/categories-List.data'
+import { Footer } from "../components/Footer.component"
+import { data } from '../data/categories-list.data'
 import { listProducts } from "../data/FeaturedProducts-list.data"
+import logo from "../assets/logo.png"
 
 function HomePage() {
     return (
@@ -34,6 +35,9 @@ function HomePage() {
             <section>
                 <FeaturedProducts data={listProducts} />
             </section>
+            <footer>
+                <Footer />
+            </footer>
         </div >
     );
 }
