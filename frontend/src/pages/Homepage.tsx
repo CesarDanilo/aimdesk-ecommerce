@@ -47,6 +47,9 @@ function HomePage() {
             <section>
                 <FeaturedProducts data={listProducts} />
             </section>
+            <section className="flex justify-center items-center relative z-0 ">
+                <SectionMainBanner />
+            </section>
             <footer>
                 <Footer />
             </footer>
