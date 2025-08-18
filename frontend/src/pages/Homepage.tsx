@@ -6,11 +6,19 @@ import { FeaturedProducts } from "../components/FeaturedProducts.component"
 import { Footer } from "../components/Footer.component"
 import { data } from '../data/categories-list.data'
 import { listProducts } from "../data/FeaturedProducts-list.data"
+import { SheetDemo } from "../components/Sheet.component"
+
 import logo from "../assets/logo.png"
+import { useState } from "react"
 
 function HomePage() {
+    const [open, setOpen] = useState(true);
+
     return (
         <div className="flex flex-col min-h-screen gap-4">
+            {
+                open && <SheetDemo />
+            }
             <nav className="border-b relative z-10 bg-white">
                 <div className="container mx-auto flex items-center justify-start gap-6 px-6 py-4">
                     <div className="w-36 flex-shrink-0">
