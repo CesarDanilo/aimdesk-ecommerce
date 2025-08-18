@@ -35,6 +35,21 @@ function HomePage() {
             <section>
                 <FeaturedProducts data={listProducts} />
             </section>
+            <section className="flex justify-center mt-8">
+                <Label htmlFor="Text" className="text-2xl">Mais vendidos</Label>
+            </section>
+            <section>
+                <FeaturedProducts data={listProducts} />
+            </section>
+            <section className="flex justify-center mt-8">
+                <Label htmlFor="Text" className="text-2xl">Lançamentos</Label>
+            </section>
+            <section>
+                <FeaturedProducts data={listProducts} />
+            </section>
+            <section className="flex justify-center items-center relative z-0 ">
+                <SectionMainBanner />
+            </section>
             <footer>
                 <Footer />
             </footer>
