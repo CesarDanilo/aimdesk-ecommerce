@@ -9,61 +9,82 @@ import { listProducts } from "../data/FeaturedProducts-list.data"
 import { SheetDemo } from "../components/Sheet.component"
 
 import logo from "../assets/logo.png"
-import { useState } from "react"
 
-function HomePage() {
-    const [open, setOpen] = useState(true);
+interface SectionTitleProps {
+    children: React.ReactNode;
+}
 
+function SectionTitle({ children }: SectionTitleProps) {
     return (
-        <div className="flex flex-col min-h-screen gap-4">
-            {
-                open && <SheetDemo />
-            }
-            <nav className="border-b relative z-10 bg-white">
-                <div className="container mx-auto flex items-center justify-start gap-6 px-6 py-4">
+        <div className="flex justify-center mt-12 mb-6">
+            <Label htmlFor="section-title" className="text-2xl font-semibold">
+                {children}
+            </Label>
+        </div>
+    );
+}
+
+export default function HomePage() {
+    return (
+        <div className="flex flex-col min-h-screen">
+            {/* HEADER */}
+            <header className="border-b relative z-10 bg-white">
+                <div className="container mx-auto flex items-center justify-between px-6 py-4">
+                    {/* Logo */}
                     <div className="w-36 flex-shrink-0">
                         <img
                             src={logo}
-                            alt="logo"
+                            alt="Logo da loja"
                             className="w-full h-auto object-contain"
                         />
                     </div>
+                    {/* Navegação */}
                     <Navigation />
+                    {/* Menu Mobile */}
+                    <SheetDemo />
                 </div>
-            </nav>
-            <section className="flex justify-center items-center relative z-0 ">
-                <SectionMainBanner />
-            </section>
-            <section className="flex justify-center -mt-24 mb-8 px-4 relative z-20">
-                <CategoryCards data={data} />
-            </section>
-            <section className="flex justify-center mt-8">
-                <Label htmlFor="Text" className="text-2xl">Destaques</Label>
-            </section>
-            <section>
-                <FeaturedProducts data={listProducts} />
-            </section>
-            <section className="flex justify-center mt-8">
-                <Label htmlFor="Text" className="text-2xl">Mais vendidos</Label>
-            </section>
-            <section>
-                <FeaturedProducts data={listProducts} />
-            </section>
-            <section className="flex justify-center mt-8">
-                <Label htmlFor="Text" className="text-2xl">Lançamentos</Label>
-            </section>
-            <section>
-                <FeaturedProducts data={listProducts} />
-            </section>
-            <section className="flex justify-center items-center relative z-0 ">
-                <SectionMainBanner />
-            </section>
-            <footer>
+            </header>
+
+            {/* MAIN */}
+            <main className="flex-grow">
+                {/* Banner Principal */}
+                <section className="flex justify-center items-center relative z-0">
+                    <SectionMainBanner />
+                </section>
+
+                {/* Categorias */}
+                <section className="flex justify-center -mt-24 mb-12 px-4 relative z-20">
+                    <CategoryCards data={data} />
+                </section>
+
+                {/* Seções de Produtos */}
+                <section className="container mx-auto px-4">
+                    <SectionTitle>Destaques</SectionTitle>
+                    <FeaturedProducts data={listProducts} />
+                </section>
+
+                <section className="container mx-auto px-4">
+                    <SectionTitle>Mais vendidos</SectionTitle>
+                    <FeaturedProducts data={listProducts} />
+                </section>
+
+                <section className="container mx-auto px-4">
+                    <SectionTitle>Lançamentos</SectionTitle>
+                    <FeaturedProducts data={listProducts} />
+                </section>
+
+                {/* Banner secundário */}
+                <section className="flex justify-center items-center relative z-0 mt-12">
+                    <SectionMainBanner />
+                </section>
+            </main>
+
+            {/* FOOTER */}
+            <footer className="mt-12">
                 <Footer />
             </footer>
-        </div >
+        </div>
     );
 }
 
 
-export default HomePage;
