@@ -75,7 +75,7 @@ export function SheetDemo() {
 
                 {/* Botões do Footer */}
                 <SheetFooter className="mt-8 flex gap-3">
-                    <Button className="flex-1"><a href="/checkout" className="flex-1">Finalizar Compra</a></Button>
+                    <Button className="flex-1"><a href="/cart/checkout" className="flex-1">Finalizar Compra</a></Button>
                     <SheetClose asChild>
                         <Button variant="outline" className="flex-1">
                             Fechar
