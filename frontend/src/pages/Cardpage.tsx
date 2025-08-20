@@ -136,7 +136,7 @@ export default function CartPage() {
                                 <span>R$ {total.toFixed(2)}</span>
                             </div>
                             <Button className="w-full text-lg py-6 rounded-2xl mt-4">
-                                Finalizar Compra
+                                <a href="/cart/checkout" className="flex-1">Finalizar Compra</a>
                             </Button>
                         </CardContent>
                     </Card>
