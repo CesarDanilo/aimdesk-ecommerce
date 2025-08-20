@@ -3,21 +3,20 @@ import { Button } from "../components/ui/button"
 import { listProducts } from "../data/FeaturedProducts-list.data"
 import { Navigation } from "../components/Navbar.component"
 import { SheetDemo } from "../components/Sheet.component"
+import { Footer } from "../components/Footer.component"
+import { FeaturedProducts } from "../components/FeaturedProducts.component"
 
 import logo from "../assets/logo.png"
 
 export default function ProdutoPage() {
-    // Pegando apenas o primeiro produto como exemplo
     const produto = listProducts[0]
 
     const adicionarAoCarrinho = (id: string) => {
         console.log(`Produto ${id} adicionado ao carrinho!`)
-        // Integração com contexto ou API de carrinho
     }
 
     const comprarAgora = (id: string) => {
         console.log(`Compra imediata do produto ${id}`)
-        // Redirecionar para checkout
     }
 
     return (
@@ -39,10 +38,10 @@ export default function ProdutoPage() {
                 </div>
             </header>
 
+            {/* Card Produto */}
             <Card className="w-full max-w-5xl shadow-sm border rounded-2xl mt-8">
                 <CardContent className="grid grid-cols-1 md:grid-cols-2 gap-8 p-8">
-
-                    {/* Imagem do Produto */}
+                    {/* Imagem */}
                     <div className="flex justify-center items-center">
                         <img
                             src={produto.image}
@@ -51,7 +50,7 @@ export default function ProdutoPage() {
                         />
                     </div>
 
-                    {/* Informações do Produto */}
+                    {/* Infos */}
                     <div className="flex flex-col justify-between">
                         <div>
                             <h1 className="text-3xl font-semibold mb-3">{produto.name}</h1>
@@ -90,6 +89,17 @@ export default function ProdutoPage() {
                     </div>
                 </CardContent>
             </Card>
+
+            {/* Produtos relacionados */}
+            <section className="w-full max-w-6xl mt-12 text-center">
+                <h3 className="text-xl font-bold mb-6">
+                    Você pode querer também
+                </h3>
+                <FeaturedProducts data={listProducts} />
+            </section>
+
+            {/* Rodapé */}
+            <Footer />
         </div>
     )
 }
