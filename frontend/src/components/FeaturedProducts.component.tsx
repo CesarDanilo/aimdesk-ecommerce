@@ -1,7 +1,6 @@
 import { useState } from "react"
 import { Card, CardContent } from "../components/ui/card"
 import { Button } from "../components/ui/button"
-import { Input } from "../components/ui/input"
 import { listProducts } from "../data/FeaturedProducts-list.data"
 
 interface FeaturedProductData {
@@ -24,7 +23,7 @@ export function FeaturedProducts({ data }: ListFeaturedProductData) {
         const matchesFilter = filter === "all" || p.category === filter
         return matchesSearch && matchesFilter
     })
-    
+
     return (
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 w-10/12 mx-auto">
             {filteredProducts.map((produto) => (
