@@ -1,3 +1,9 @@
+import { useState } from "react"
+import { Card, CardContent } from "../components/ui/card"
+import { Button } from "../components/ui/button"
+import { Input } from "../components/ui/input"
+import { listProducts } from "../data/FeaturedProducts-list.data"
+
 interface FeaturedProductData {
     id: string;
     name: string;
@@ -10,31 +16,35 @@ interface ListFeaturedProductData {
 }
 
 export function FeaturedProducts({ data }: ListFeaturedProductData) {
+    const [search, setSearch] = useState("")
+    const [filter, setFilter] = useState("all")
+
+    const filteredProducts = listProducts.filter((p) => {
+        const matchesSearch = p.name.toLowerCase().includes(search.toLowerCase())
+        const matchesFilter = filter === "all" || p.category === filter
+        return matchesSearch && matchesFilter
+    })
+    
     return (
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 w-10/12 mx-auto">
-            {data.map((item) => (
-                <div
-                    key={item.id}
-                    className="bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden border border-gray-100"
-                >
-                    <div className="w-full h-48 overflow-hidden">
+            {filteredProducts.map((produto) => (
+                <Card key={produto.id} className="rounded-2xl shadow-md">
+                    <CardContent className="p-4 flex flex-col items-center text-center">
                         <img
-                            src={item.image}
-                            alt={item.name}
-                            className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-300"
+                            src={produto.image}
+                            alt={produto.name}
+                            className="h-40 object-contain mb-3"
                         />
-                    </div>
-
-                    <div className="p-1 flex flex-col justify-between h-24">
-                        <h3 className="text-base font-semibold text-gray-800 truncate">
-                            {item.name}
-                        </h3>
-                        <p className="text-gray-500 text-sm">${item.price}</p>
-                        <button className="mt-2 bg-black text-white py-1.5 rounded-lg hover:bg-gray-800 transition-colors duration-300">
-                            Buy Now
-                        </button>
-                    </div>
-                </div>
+                        <h2 className="text-lg font-semibold mb-2">{produto.name}</h2>
+                        <p className="text-gray-600 mb-4">R$ {produto.price}</p>
+                        <div className="flex gap-2">
+                            <Button className="rounded-xl">Adicionar ao Carrinho</Button>
+                            <Button variant="secondary" className="rounded-xl">
+                                Comprar
+                            </Button>
+                        </div>
+                    </CardContent>
+                </Card>
             ))}
         </div>
     );
