@@ -5,6 +5,7 @@ import { Input } from "../components/ui/input"
 import { listProducts } from "../data/FeaturedProducts-list.data"
 import { SheetDemo } from "../components/Sheet.component"
 import { Navigation } from "../components/Navbar.component"
+import { Footer } from "../components/Footer.component"
 import logo from "../assets/logo.png"
 
 export default function AllProductsPage() {
@@ -89,6 +90,7 @@ export default function AllProductsPage() {
                     )}
                 </div>
             </main>
+            <Footer />
         </div>
     )
 }
