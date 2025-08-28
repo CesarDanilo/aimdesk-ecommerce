@@ -4,9 +4,14 @@ import { Card, CardContent, CardHeader, CardTitle } from "../components/ui/card"
 import { Button } from "../components/ui/button"
 import { Separator } from "../components/ui/separator"
 import { Minus, Plus, Trash2 } from "lucide-react"
+import { Navigation } from "../components/Navbar.component"
+import { SheetDemo } from "../components/Sheet.component"
+import { Link } from "react-router-dom"
+
+import logo from "../assets/logo.png"
 
 type Produto = {
-    id: number
+    id: string
     nome: string
     preco: number
     quantidade: number
@@ -15,8 +20,8 @@ type Produto = {
 
 export default function CartPage() {
     const [produtos, setProdutos] = useState<Produto[]>(
-        listProducts.map((p, i) => ({
-            id: i,
+        listProducts.map((p) => ({
+            id: p.id,
             nome: p.name,
             preco: parseFloat(p.price), // 👈 converte string para número
             quantidade: 1,
@@ -24,15 +29,17 @@ export default function CartPage() {
         }))
     )
 
-    const atualizarQuantidade = (id: number, delta: number) => {
+    const atualizarQuantidade = (id: string, delta: number) => {
         setProdutos((prev) =>
             prev.map((p) =>
-                p.id === id ? { ...p, quantidade: Math.max(1, p.quantidade + delta) } : p
+                p.id === id
+                    ? { ...p, quantidade: Math.max(1, p.quantidade + delta) }
+                    : p
             )
         )
     }
 
-    const removerProduto = (id: number) => {
+    const removerProduto = (id: string) => {
         setProdutos((prev) => prev.filter((p) => p.id !== id))
     }
 
@@ -41,9 +48,28 @@ export default function CartPage() {
     const total = subtotal + frete
 
     return (
-        <div className="flex justify-center min-h-screen bg-gray-50 py-10 px-4">
-            <div className="w-full max-w-6xl grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div className="flex flex-col min-h-screen">
+            {/* Header */}
+            <header className="border-b relative z-10 bg-white w-full">
+                <div className="container mx-auto flex items-center justify-between px-6 py-4">
+                    {/* Logo */}
+                    <div className="w-36 flex-shrink-0">
+                        <Link to="/">
+                            <img
+                                src={logo}
+                                alt="Logo da loja"
+                                className="w-full h-auto object-contain"
+                            />
+                        </Link>
+                    </div>
+                    {/* Navegação */}
+                    <Navigation />
+                    {/* Menu Mobile */}
+                    <SheetDemo />
+                </div>
+            </header>
 
+            <div className="container mx-auto w-full max-w-6xl grid grid-cols-1 lg:grid-cols-3 gap-6 mt-6">
                 {/* Lista de Produtos */}
                 <div className="lg:col-span-2 space-y-4">
                     <Card>
@@ -75,6 +101,7 @@ export default function CartPage() {
                                             <Button
                                                 variant="outline"
                                                 size="icon"
+                                                aria-label="Diminuir quantidade"
                                                 onClick={() => atualizarQuantidade(produto.id, -1)}
                                             >
                                                 <Minus className="h-4 w-4" />
@@ -85,6 +112,7 @@ export default function CartPage() {
                                             <Button
                                                 variant="outline"
                                                 size="icon"
+                                                aria-label="Aumentar quantidade"
                                                 onClick={() => atualizarQuantidade(produto.id, 1)}
                                             >
                                                 <Plus className="h-4 w-4" />
@@ -98,6 +126,7 @@ export default function CartPage() {
                                             <Button
                                                 variant="ghost"
                                                 size="icon"
+                                                aria-label="Remover produto"
                                                 onClick={() => removerProduto(produto.id)}
                                                 className="text-red-500 hover:text-red-700"
                                             >
@@ -135,9 +164,11 @@ export default function CartPage() {
                                 <span>Total</span>
                                 <span>R$ {total.toFixed(2)}</span>
                             </div>
-                            <Button className="w-full text-lg py-6 rounded-2xl mt-4">
-                                <a href="/cart/checkout" className="flex-1">Finalizar Compra</a>
-                            </Button>
+                            <Link to="/cart/checkout">
+                                <Button className="w-full text-lg py-6 rounded-2xl mt-4">
+                                    Finalizar Compra
+                                </Button>
+                            </Link>
                         </CardContent>
                     </Card>
                 </div>
