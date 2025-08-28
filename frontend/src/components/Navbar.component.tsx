@@ -29,7 +29,7 @@ export function Navigation() {
                     <NavigationMenuTrigger>Produtos</NavigationMenuTrigger>
                     <NavigationMenuContent>
                         <ul className="grid gap-2 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
-                            <ListItem href="/produtos" title="Todos os Produtos">
+                            <ListItem href="/allproducts" title="Todos os Produtos">
                                 Veja todo o nosso catálogo de mouse pads.
                             </ListItem>
                             <ListItem href="/produtos/mais-vendidos" title="Mais Vendidos">

@@ -25,11 +25,13 @@ export default function ProdutoPage() {
                 <div className="container mx-auto flex items-center justify-between px-6 py-4">
                     {/* Logo */}
                     <div className="w-36 flex-shrink-0">
-                        <img
-                            src={logo}
-                            alt="Logo da loja"
-                            className="w-full h-auto object-contain"
-                        />
+                        <a href="/">
+                            <img
+                                src={logo}
+                                alt="Logo da loja"
+                                className="w-full h-auto object-contain"
+                            />
+                        </a>
                     </div>
                     {/* Navegação */}
                     <Navigation />
