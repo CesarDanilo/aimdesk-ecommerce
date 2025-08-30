@@ -6,8 +6,8 @@ Este projeto reflete minha experiência prática em **frontend, backend, banco d
 ![01 E-Commerce Site](https://github.com/user-attachments/assets/ff33b57c-0cc7-4e6b-a5d8-e2002068c859)
 
 ---
-
-## 🚀 Tecnologias Utilizadas
+### ⚠ EM DESENVOLVIMENTO 
+## 🚀 Tecnologias Utilizadas 
 
 ### **Frontend**
 - **TypeScript** → tipagem estática para maior segurança e produtividade.  
